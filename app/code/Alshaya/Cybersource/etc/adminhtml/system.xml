@@ -1,0 +1,78 @@
+﻿<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Config/etc/system_file.xsd">
+    <system>
+        <section id="payment" translate="label" type="text" sortOrder="1500" showInDefault="1" showInWebsite="1" showInStore="1">
+			<resource>Magento_Backend::currency</resource>
+            <group id="cybersource" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="order_types" type="multiselect" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Mapped Order Types</label>
+                    <source_model>Alshaya\Deliverymatrix\Model\OrderTypes</source_model>
+                    <can_be_empty>1</can_be_empty>					
+                </field>
+				<field id="autocancel_timeout" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Auto Cancel Timeout</label>
+                    <comment> Timeout must be strictly set in mintues only</comment>
+                </field>				
+                <field id="logger" translate="label" type="select" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Logger</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="merchant_id" translate="label" type="text" sortOrder="40" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Merchant ID</label>
+                </field>
+                
+                <field id="transaction_key" translate="label" type="text" sortOrder="40" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Transaction Key</label>
+                   
+                </field>
+                <field id="profile_id" translate="label" type="text" sortOrder="40" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Profile ID</label>
+                   
+                </field>
+                <field id="access_key" translate="label" type="text" sortOrder="50" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Access Key</label>
+                    
+                </field>
+                <field id="secret_key" translate="label" type="text" sortOrder="60" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Secret Key</label>
+                </field>  
+
+                <field id="merchant_id_alshaya" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Alshaya Merchant ID</label>
+                </field> 
+                 <field id="transaction_key_alshaya" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Alshaya Transaction Key</label>
+                </field>
+                <field id="profile_id_alshaya" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Alshaya Profile ID</label>
+                </field>
+                <field id="access_key_alshaya" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Alshaya Access Key</label>
+                </field>
+                <field id="secret_key_alshaya" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Alshaya Secret Key</label>
+                </field>    
+
+                <field id="enable_org" translate="label" type="select" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Live Origin Id:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Magento\Contact\Model\System\Config\Backend\Links</backend_model>
+                </field>
+                <field id="test_org_id" translate="label" type="text" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Test Org Id:</label>
+                </field>
+                <field id="live_org_id" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Live Org Id:</label>
+                </field>
+
+            </group>
+            		
+        </section>
+    </system>
+</config>

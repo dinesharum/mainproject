@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Magento\Cybersource\Gateway\Command\AuthorizeStrategyCommand" type="Alshaya\Cybersource\Model\AuthorizeStrategyCommand" />
+	<preference for="Magento\Sales\Model\Order\Payment" type="Alshaya\Cybersource\Model\Payment" />
+	<type name="Alshaya\Cybersource\Logger\Logger">
+		<arguments>
+		    <argument name="name" xsi:type="string">Cybersource</argument>
+		    <argument name="handlers"  xsi:type="array">
+		        <item name="system" xsi:type="object">Alshaya\Cybersource\Logger\Handler</item>
+		    </argument>
+		</arguments>
+	</type>
+	<preference for="Alshaya\Cybersource\Api\CybersourcePostInterface" type="Alshaya\Cybersource\Model\CybersourcePost" />
+	<preference for="Alshaya\Cybersource\Api\Data\CybersourceInterface" type="Alshaya\Cybersource\Model\Data\Cybersource" />
+	<preference for="Alshaya\Cybersource\Api\Data\AddressInterface" type="Alshaya\Cybersource\Model\Data\Address" />
+</config>

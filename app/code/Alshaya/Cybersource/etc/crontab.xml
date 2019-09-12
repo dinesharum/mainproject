@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="cybersource_autocancel_cron" instance="Alshaya\Cybersource\Model\CybersourceCron" method="processCybersourceOrders">
+           <schedule>*/5 * * * *</schedule>
+        </job>
+	 
+    </group>
+    <group id="cybersource_auth_cron_group">
+    	<job name="cybersource_authreversal_cron" instance="Alshaya\Cybersource\Model\CybersourceCustCancelFailedCron" method="custAuthReversalFailedJob">
+           <schedule>* * * * *</schedule>
+        </job>
+		<job name="cybersource_refund_cron" instance="Alshaya\Cybersource\Model\CybersourceRefundFailedCron" method="refundCronJob">
+           <schedule>* * * * *</schedule>
+        </job>
+    </group>
+</config>

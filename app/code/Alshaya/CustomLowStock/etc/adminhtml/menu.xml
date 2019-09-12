@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Alshaya_CustomLowStock::item" title="Notify Low Stock" module="Alshaya_CustomLowStock" sortOrder="200" parent="Magento_Reports::report_products" action="customlowstock/item" resource="Alshaya_CustomLowStock::item"/>
+    </menu>
+</config>

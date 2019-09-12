@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="order_cancel_after">
+        <observer name="auth_reversal_trigger" instance="Alshaya\Cybersource\Observer\CybAuthReversalObserver" shared="false" />
+    </event>
+    <event name="checkout_submit_all_after">
+        <observer name="checkout_submit_all_after" instance="Alshaya\Cybersource\Observer\Sales\Order\CodTransactionSaveObserver" />
+    </event> 
+</config>
+ 

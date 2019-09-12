@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+		<template id="cybersource_autocancel_email_template" label="cybersource Auto Cancel- EMail Notification" file="cybersource_autocancel.html" type="html" module="Alshaya_Cybersource" area="frontend"/>
+		<template id="cybersource_authresponse_email_template" label="cybersource Auth Response- EMail Notification" file="cybersource_authresponse.html" type="html" module="Alshaya_Cybersource" area="frontend"/>
+		<template id="cybersource_captureresponse_email_template" label="cybersource Caputre Response- EMail Notification" file="cybersource_captureresponse.html" type="html" module="Alshaya_Cybersource" area="frontend"/>
+		<template id="cybersource_refundresponse_email_template" label="cybersource Refund Response- EMail Notification" file="cybersource_refundresponse.html" type="html" module="Alshaya_Cybersource" area="frontend"/>
+</config>

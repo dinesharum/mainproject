@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing_data_source</item>
+            <item name="deps" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">customlowstock_item_columns</item>
+        <item name="worksheetlabel" xsi:type="string">lowstock_report</item>
+    </argument>
+    <dataSource name="customlowstock_item_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">ItemGridDataProvider</argument>
+            <argument name="name" xsi:type="string">customlowstock_item_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">block_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <container name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="template" xsi:type="string">ui/grid/toolbar</item>
+            </item>
+        </argument>
+        <exportButton name="export_button">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.customlowstock_item_columns.ids</item>
+					<item name="options" xsi:type="array">
+                            <item name="xlsx" xsi:type="array">
+                                <item name="value" xsi:type="string">xlsx</item>
+                                <item name="label" xsi:type="string" translate="true">Excel Xlsx</item>
+                                <item name="url" xsi:type="string">phpexcel/export/gridToXlsx</item>
+                            </item>
+                    </item>
+                </item>
+            </argument>
+        </exportButton>
+        <filterSearch name="fulltext">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/search/search</item>
+                    <item name="displayArea" xsi:type="string">dataGridFilters</item>
+                    <item name="provider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing_data_source</item>
+                    <item name="chipsProvider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.listing_top.listing_filters_chips</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.search</item>
+                    </item>
+                </item>
+            </argument>
+        </filterSearch>
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="columnsProvider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.customlowstock_item_columns</item>
+                    <item name="displayArea" xsi:type="string">dataGridFilters</item>
+                    <item name="dataScope" xsi:type="string">filters</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.filters</item>
+                    </item>
+                    <item name="childDefaults" xsi:type="array">
+                        <item name="provider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.listing_top.listing_filters</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </filters>
+        <paging name="listing_paging">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.paging</item>
+                    </item>
+                    <item name="selectProvider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.customlowstock_item_columns.ids</item>
+                    <item name="displayArea" xsi:type="string">bottom</item>
+                    <item name="options" xsi:type="array">
+                        <item name="20" xsi:type="array">
+                            <item name="value" xsi:type="number">20</item>
+                            <item name="label" xsi:type="string" translate="true">20</item>
+                        </item>
+                        <item name="30" xsi:type="array">
+                            <item name="value" xsi:type="number">30</item>
+                            <item name="label" xsi:type="string" translate="true">30</item>
+                        </item>
+                        <item name="50" xsi:type="array">
+                            <item name="value" xsi:type="number">50</item>
+                            <item name="label" xsi:type="string" translate="true">50</item>
+                        </item>
+                        <item name="100" xsi:type="array">
+                            <item name="value" xsi:type="number">100</item>
+                            <item name="label" xsi:type="string" translate="true">100</item>
+                        </item>
+                        <item name="200" xsi:type="array">
+                            <item name="value" xsi:type="number">200</item>
+                            <item name="label" xsi:type="string" translate="true">200</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </paging>
+    </container>
+    <columns name="customlowstock_item_columns">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="storageConfig" xsi:type="array">
+                    <item name="provider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.listing_top.bookmarks</item>
+                    <item name="namespace" xsi:type="string">current</item>
+                </item>
+                <item name="childDefaults" xsi:type="array">
+                    <item name="fieldAction" xsi:type="array">
+                        <item name="provider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.customlowstock_item_columns.actions</item>
+                        <item name="target" xsi:type="string">applyAction</item>
+                        <item name="params" xsi:type="array">
+                            <item name="0" xsi:type="string">edit</item>
+                            <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                        </item>
+                    </item>
+                    <item name="controlVisibility" xsi:type="boolean">true</item>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">customlowstock_item_listing.customlowstock_item_listing.listing_top.bookmarks</item>
+                        <item name="root" xsi:type="string">columns.${ $.index }</item>
+                        <item name="namespace" xsi:type="string">current.${ $.storageConfig.root}</item>
+                    </item>
+                </item>
+            </item>
+        </argument>
+
+      <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">55</item>
+                    <item name="indexField" xsi:type="string">timestamp</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+		
+		
+		<column name="timestamp" class="Magento\Ui\Component\Listing\Columns\Date">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">dateRange</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
+                    <item name="dataType" xsi:type="string">date</item>
+                    <item name="label" xsi:type="string" translate="true">Interval</item>
+                </item>
+            </argument>
+        </column>
+		
+		
+        <column name="sku">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">SKU</item>
+                </item>
+            </argument>
+        </column>
+        <column name="style_code">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">Style Code</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">Product Name</item>
+                </item>
+            </argument>
+        </column>
+        <column name="size">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+					
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                    <item name="label" xsi:type="string" translate="true">Size</item>
+                </item>
+            </argument>
+        </column>
+        
+        <column name="threshold">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="editor" xsi:type="array">
+                        <item name="editorType" xsi:type="string">text</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+
+                    <item name="label" xsi:type="string" translate="true">Threshold</item>
+                </item>
+            </argument>
+        </column>
+		<column name="country">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Alshaya\CustomLowStock\Ui\Component\Listing\Column\Option\Options</item>
+                <item name="config" xsi:type="array">
+					<item name="filter" xsi:type="string">select</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
+                    <item name="dataType" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Country</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

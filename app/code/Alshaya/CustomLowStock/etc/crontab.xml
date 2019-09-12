@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Alshaya. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="custom_low_stock_report_per_hour" instance="Alshaya\CustomLowStock\Model\Cron" method="exportLowStockPerHourXLSX">
+           <schedule>00 9-18 * * *</schedule>
+        </job>
+         <job name="custom_low_stock_report_per_day" instance="Alshaya\CustomLowStock\Model\Cron" method="exportLowStockPerDayXLSX">
+           <schedule>00 00 * * *</schedule>
+        </job>  
+    </group>
+</config>

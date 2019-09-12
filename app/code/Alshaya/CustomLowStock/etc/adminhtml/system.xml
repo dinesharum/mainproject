@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2015 Amasty (http://www.amasty.com)
+ * @package Amasty_HelloWorld
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <tab id="alshaya" translate="label" sortOrder="500">
+            <label>Alshaya NotifyLowStock</label>
+        </tab>
+        <section id="alshaya_customlowstock" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Notify Low Stock</label> 
+            <tab>alshaya</tab>
+            <resource>Alshaya_CustomLowStock::item</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Mail Setting</label>
+                <field id="mail_host" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Host</label>
+                     <comment>
+                        Enter the Mail Sever Host.
+                    </comment>
+                </field>
+                <field id="mail_port" translate="label" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Port</label>
+                     <comment>
+                        Enter the Mail Sever Port.
+                    </comment>
+                </field>
+                 <field id="mail_username" translate="label" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Email/Username</label>
+                </field>
+                 <field id="mail_password" translate="label" type="password" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Password</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
